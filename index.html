@@ -44,10 +44,10 @@
   background: #f4efe6;
 }
 
-.left-panel {
+.left-panel-admin {
   position: absolute;
   max-width: 300px;
-  margin-top: 300px;
+  margin-top: 200px;
   margin-left: 100px;
   margin-right: 0;
   padding: 10px 15px;
@@ -55,7 +55,19 @@
   text-align: center;
   font-size: 12px;
 }
-  
+
+.left-panel-map {
+  position: absolute;
+  max-width: 300px;
+  margin-top: 400px;
+  margin-left: 100px;
+  margin-right: 0;
+  padding: 10px 15px;
+  background: #f4efe6;
+  text-align: center;
+  font-size: 12px;
+}
+
 h1 {
   margin-bottom: 0;
 }
@@ -84,11 +96,18 @@ h2 {
 
 <body>
 <div class="main-row">
-<div id="admin-panel" class="left-panel">
+<div id="admin-panel" class="left-panel-admin">
   <strong>관리자 패널</strong> 
   <hr> 
   <div>방문자 수: <span id="visit-count">0</span></div>
   <button id="reset-count">방문자 초기화</button>
+</div>
+
+<div class="left-panel-map">
+  <strong>Visitor Map</strong> 
+  <hr> 
+  <div id="clustrmaps-box">
+  </div>
 </div>
 
 <div class="container1">
@@ -285,10 +304,9 @@ Pre Print 다운 - 한글 (PDF)
     const script = document.createElement('script');
     script.src = "//clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a";
     script.async = true;
-    document.body.appendChild(script);
+    document.getElementById('clustrmaps-box').appendChild(script);
   }
 </script>
-
 
 </body>
 </html>
