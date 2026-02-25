@@ -275,7 +275,8 @@ Pre Print 다운 - 한글 (PDF)
   localStorage.setItem('visitCount', count);
 
   if (isAdmin) {
-    document.getElementById('visit-count').textContent = count;
+    const count = localStorage.getItem('visitCount') || 0; 
+    document.getElementById('visit-count').textContent = count; 
   }
 </script>
 
