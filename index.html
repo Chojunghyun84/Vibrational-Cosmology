@@ -309,12 +309,12 @@ Pre Print 다운 - 한글 (PDF)
 </script>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
     const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
-
-    if (!isAdmin) {
+  
+    if (!isMapAdmin) {
       const box = document.getElementById('clustrmaps-box');
-      if (!box) return;
-
+      if (!box) {
       const script = document.createElement('script');
       script.id = 'clstr_globe'; 
       script.type = 'text/javascript';
@@ -322,6 +322,7 @@ Pre Print 다운 - 한글 (PDF)
       script.async = true;
       box.appendChild(script);
     }
+  }
   });
 </script>
 
