@@ -308,26 +308,7 @@ Pre Print 다운 - 한글 (PDF)
   }
 </script>
 
-<script>
-  // [스크립트 2] ClustrMaps 지도 위젯 안전 로딩 (문법 오류 100% 제거 완료)
-  document.addEventListener('DOMContentLoaded', () => {
-    const isMapAdmin = new URLSearchParams(window.location.search).get('admin') === '1';
-    
-    // 주소창에 ?admin=1이 없을 때만 지도를 화면에 불러옵니다.
-    if (!isMapAdmin) {
-      const box = document.getElementById('clustrmaps-box');
-      if (box) {
-        const script = document.createElement('script');
-        script.id = 'clstr_globe'; 
-        script.type = 'text/javascript';
-        script.src = "//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58";
-        script.async = true;
-        
-        box.appendChild(script);
-      }
-    }
-  });
-</script>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58'></script>
 
 </body>
 </html>
