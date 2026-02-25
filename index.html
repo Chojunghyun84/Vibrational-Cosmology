@@ -90,7 +90,7 @@ h2 {
  }
 
 #map-panel {
-  display: block;
+  display: none;
  }
 
 </style>
@@ -280,24 +280,29 @@ Pre Print 다운 - 한글 (PDF)
 
    if (isAdmin) {
     document.getElementById('admin-panel').style.display = 'block';
-    document.getElementById('map-panel').style.display = 'none';
-  }
-
-   if (!isAdmin) {
-    let count = localStorage.getItem('visitCount');
-    count = count ? parseInt(count, 10) : 0;
-    count++;
-    localStorage.setItem('visitCount', count);
-  }
- if (isAdmin) {
-    const count = localStorage.getItem('visitCount') || 0;
+   const count = localStorage.getItem('visitCount') || 0;
     document.getElementById('visit-count').textContent = count;
 
     document.getElementById('reset-count').onclick = () => {
       localStorage.setItem('visitCount', 0);
-      document.getElementById('visit-count').textContent = 0;
-    };
+      document.getElementById('visit-count').textContent = 0
+    }; 
+   }
+
+   if (!isAdmin) {
+    document.getElementById('map-panel').style.display = 'block';
+    
+    let count = localStorage.getItem('visitCount');
+    count = count ? parseInt(count, 10) : 0;
+    count++;
+    localStorage.setItem('visitCount', count);
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'clustrmaps';
+    script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58';
   }
+ 
 </script>   
 
   
