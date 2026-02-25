@@ -262,17 +262,10 @@ Pre Print 다운 - 한글 (PDF)
 // 관리자면 카운트 증가시키지 않음 
   if (!isAdmin) { 
   let count = localStorage.getItem('visitCount'); 
-   count = count ? parseInt(count, 10) : 0; 
-  count++; localStorage.setItem('visitCount', count); 
+  count = count ? parseInt(count, 10) : 0; 
+  count++; 
+  localStorage.setItem('visitCount', count); 
   }
-
-  // 방문자 수 카운트 (브라우저 기준)
-  let count = localStorage.getItem('visitCount');
-  if (!count) {
-    count = 0;
-  }
-  count++;
-  localStorage.setItem('visitCount', count);
 
   if (isAdmin) {
     const count = localStorage.getItem('visitCount') || 0; 
