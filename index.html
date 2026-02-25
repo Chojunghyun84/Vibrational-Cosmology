@@ -112,6 +112,12 @@ h2 {
   <strong>Visitor Map</strong> 
   <hr> 
   <div id="clustrmaps-box">
+    <script>
+      const isAdminForMap = new URLSearchParams(window.location.search).get('admin') === '1';
+      if (!isAdminForMap) {
+        document.write('<script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a"><\/script>');
+      }
+    </script>
   </div>
 </div>
 
@@ -303,7 +309,6 @@ Pre Print 다운 - 한글 (PDF)
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
     const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
 
     if (!isAdmin) {
@@ -311,7 +316,6 @@ Pre Print 다운 - 한글 (PDF)
       if (!box) return;
 
       const script = document.createElement('script');
-      // 스크립트가 렌더링 위치를 찾을 수 있도록 ID를 반드시 추가해야 해요.
       script.id = 'clstr_globe'; 
       script.type = 'text/javascript';
       script.src = "https://clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a";
