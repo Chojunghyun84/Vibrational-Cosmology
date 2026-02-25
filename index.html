@@ -273,6 +273,14 @@ Pre Print 다운 - 한글 (PDF)
     const count = localStorage.getItem('visitCount') || 0; 
     document.getElementById('visit-count').textContent = count; 
   }
+
+if (isAdmin) { 
+  const count = localStorage.getItem('visitCount') || 0; 
+  document.getElementById('visit-count').textContent = count; 
+  document.getElementById('reset-count').onclick = () => { 
+    localStorage.setItem('visitCount', 0); document.getElementById('visit-count').textContent = 0;
+  };
+}
 </script>
 
 
