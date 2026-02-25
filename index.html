@@ -39,7 +39,7 @@
   max-width: 1000px;
   margin: 20px auto;
   margin-top: 40px;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
   padding: 20px 30px;
   background: #f4efe6;
 }
@@ -74,13 +74,19 @@ h2 {
   margin-top: 60px;
 }
 
+#admin-panel {
+  display: none;
+}
+
 </style>
 
 </head>
 
 <body>
 <div class="main-row">
-<div class="left-panel">11111111111111111111</div>
+<div id="admin-panel" class="left-panel">
+  관리자 패널
+</div>
 
 <div class="container1">
 <h1 class="title-main">The Universe Viewed Through Vibration</h1> 
@@ -242,6 +248,13 @@ Pre Print 다운 - 한글 (PDF)
 </p>
 
 </div>
+
+<script> 
+ const params = new URLSearchParams(window.location.search); 
+ if (params.get('admin') === '1') { 
+   document.getElementById('admin-panel').style.display = 'block'; 
+ } 
+</script>
 
 </body>
 </html>
