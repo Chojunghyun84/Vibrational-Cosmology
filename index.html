@@ -58,8 +58,8 @@
 
 .left-panel-map {
   position: fixed; 
-  top: 400px; 
-  left: 100px;
+  margin-top: 500px;
+  margin-left: 100px;
   max-width: 300px;
   padding: 10px 15px;
   background: #f4efe6;
@@ -90,8 +90,7 @@ h2 {
 }
 
 #clustrmaps-box {
-  min-height: 220px;
-  overflow: hidden;
+  display: none;
 }
 
   
@@ -109,16 +108,10 @@ h2 {
 </div>
 
 <div class="left-panel-map">
-  <strong>Visitor Map</strong> 
+  <strong>방문자 지도</strong> 
   <hr> 
   <div id="clustrmaps-box">
-    <script>
-      const isAdminForMap = new URLSearchParams(window.location.search).get('admin') === '1';
-      if (!isAdminForMap) {
-        document.write('<script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a"><\/script>');
-      }
-    </script>
-  </div>
+</div>
 </div>
 
 <div class="container1">
@@ -283,32 +276,19 @@ Pre Print 다운 - 한글 (PDF)
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const isAdmin = params.get('admin') === '1';
+  const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
+
+  const mapPanel = document.getElementById('map-panel');
+  const adminPanel = document.getElementById('admin-panel');
 
   if (isAdmin) {
-    document.getElementById('admin-panel').style.display = 'block';
-  }
-
-  if (!isAdmin) {
-    let count = localStorage.getItem('visitCount');
-    count = count ? parseInt(count, 10) : 0;
-    count++;
-    localStorage.setItem('visitCount', count);
-  }
-
-  if (isAdmin) {
-    const count = localStorage.getItem('visitCount') || 0;
-    document.getElementById('visit-count').textContent = count;
-
-    document.getElementById('reset-count').onclick = () => {
-      localStorage.setItem('visitCount', 0);
-      document.getElementById('visit-count').textContent = 0;
-    };
+    adminPanel.style.display = 'block';
+    mapPanel.style.display = 'none';
+  } else {
+    adminPanel.style.display = 'none';
+    mapPanel.style.display = 'block';
   }
 </script>
-
-<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58'></script>
 
 </body>
 </html>
