@@ -298,15 +298,21 @@ Pre Print 다운 - 한글 (PDF)
 </script>
 
 <script>
-  const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
+  document.addEventListener('DOMContentLoaded', () => {
+    const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
 
-  if (!isAdmin) {
-    const script = document.createElement('script');
-    script.src = "//clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a";
-    script.async = true;
-    document.getElementById('clustrmaps-box').appendChild(script);
-  }
+    if (!isAdmin) {
+      const box = document.getElementById('clustrmaps-box');
+      if (!box) return;
+
+      const script = document.createElement('script');
+      script.src = "//clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a";
+      script.async = true;
+      box.appendChild(script);
+    }
+  });
 </script>
+
 
 </body>
 </html>
