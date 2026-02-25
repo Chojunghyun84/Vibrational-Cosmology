@@ -86,6 +86,7 @@ h2 {
 }
 
 #admin-panel {
+  display: none;
  }
 
 </style>
@@ -271,11 +272,11 @@ Pre Print 다운 - 한글 (PDF)
   const params = new URLSearchParams(window.location.search);
   const isAdmin = params.get('admin') === '1';
 
-   if (!isAdmin) {
+   if (isAdmin) {
     document.getElementById('admin-panel').style.display = 'block';
   }
 
-   if (isAdmin) {
+   if (!isAdmin) {
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
     count++;
