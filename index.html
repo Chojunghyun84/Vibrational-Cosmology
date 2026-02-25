@@ -80,6 +80,23 @@ h2 {
 
 </style>
 
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const isAdmin = params.get('admin') === '1';
+
+  if (!isAdmin) {
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-Z8QZ8CVL00";
+    document.head.appendChild(gtagScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z8QZ8CVL00');
+  }
+</script>
+
 </head>
 
 <body>
@@ -251,38 +268,6 @@ Pre Print 다운 - 한글 (PDF)
 </p>
 
 </div>
-
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const isAdmin = params.get('admin') === '1';
-
-  if (isAdmin) {
-    document.getElementById('admin-panel').style.display = 'block';
-  }
-
-// 관리자면 카운트 증가시키지 않음 
-  if (!isAdmin) { 
-  let count = localStorage.getItem('visitCount'); 
-  count = count ? parseInt(count, 10) : 0; 
-  count++; 
-  localStorage.setItem('visitCount', count); 
-  }
-
-// 관리자 화면에는 현재 저장된 값만 표시
-  if (isAdmin) {
-    const count = localStorage.getItem('visitCount') || 0; 
-    document.getElementById('visit-count').textContent = count; 
-  }
-
-if (isAdmin) { 
-  const count = localStorage.getItem('visitCount') || 0; 
-  document.getElementById('visit-count').textContent = count; 
-  document.getElementById('reset-count').onclick = () => { 
-    localStorage.setItem('visitCount', 0); document.getElementById('visit-count').textContent = 0;
-  };
-}
-</script>
-
 
 </body>
 </html>
