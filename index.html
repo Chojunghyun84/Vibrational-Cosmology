@@ -278,6 +278,17 @@ Pre Print 다운 - 한글 (PDF)
   }
 </script>
 
+<script>
+  const isAdmin = new URLSearchParams(location.search).get('admin') === '1';
+
+  if (!isAdmin) {
+    const script = document.createElement('script');
+    script.src = "//clustrmaps.com/map_v2.js?d=J1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNKS58&cl=ffffff&w=a";
+    script.async = true;
+    document.body.appendChild(script);
+  }
+</script>
+
 
 </body>
 </html>
