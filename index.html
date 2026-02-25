@@ -85,7 +85,9 @@ h2 {
 <body>
 <div class="main-row">
 <div id="admin-panel" class="left-panel">
-  관리자 패널
+  <strong>관리자 패널</strong> 
+  <hr> 
+  <div>방문자 수: <span id="visit-count">0</span></div>
 </div>
 
 <div class="container1">
@@ -249,12 +251,27 @@ Pre Print 다운 - 한글 (PDF)
 
 </div>
 
-<script> 
- const params = new URLSearchParams(window.location.search); 
- if (params.get('admin') === '1') { 
-   document.getElementById('admin-panel').style.display = 'block'; 
- } 
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const isAdmin = params.get('admin') === '1';
+
+  if (isAdmin) {
+    document.getElementById('admin-panel').style.display = 'block';
+  }
+
+  // 방문자 수 카운트 (브라우저 기준)
+  let count = localStorage.getItem('visitCount');
+  if (!count) {
+    count = 0;
+  }
+  count++;
+  localStorage.setItem('visitCount', count);
+
+  if (isAdmin) {
+    document.getElementById('visit-count').textContent = count;
+  }
 </script>
+
 
 </body>
 </html>
