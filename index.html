@@ -102,7 +102,7 @@ h2 {
 <div id="admin-panel" class="left-panel-admin">
   <strong>관리자 패널</strong> 
   <hr> 
-  <div id="map-widget"></div>
+  <div id="map-widget1"></div>
   <hr> 
   <div>방문자 수: <span id="visit-count">0</span></div>
   <button id="reset-count">방문자 초기화</button>
@@ -111,7 +111,7 @@ h2 {
 <div id="map-panel" class="left-panel-map">
   <strong>방문자 지도</strong>
   <hr>
-  <div id="map-widget"></div>
+  <div id="map-widget2"></div>
  </div>
 </div>
 
@@ -305,7 +305,8 @@ Pre Print 다운 - 한글 (PDF)
     script.id = 'clustrmaps';
     script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58';
 
-    document.getElementById('map-widget').appendChild(script);
+    document.getElementById('map-widget1').appendChild(script);
+    document.getElementById('map-widget2').appendChild(script);
   }
  
 </script>   
