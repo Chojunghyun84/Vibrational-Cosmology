@@ -89,6 +89,7 @@ h2 {
   <hr> 
   <div id="visitor-map-area"></div>
   <div>방문자 수: <span id="visit-count">0</span></div>
+  <hr>
   <button id="reset-count">방문자 초기화</button>
  </div>
 </div>
@@ -283,7 +284,8 @@ Pre Print 다운 - 한글 (PDF)
   
    if (!isAdmin) {
     document.getElementById('map-panel').style.display = 'block';
-    
+    document.getElementById('reset-count').style.display = 'inline-none';
+     
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
     count++;
