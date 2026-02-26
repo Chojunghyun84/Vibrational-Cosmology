@@ -294,7 +294,7 @@ Pre Print 다운 - 한글 (PDF)
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
     count++;
-    localStorage.setItem('visitCount', count);
+    localStorage.setItem('visitCount', 0);
     document.getElementById('visit-count').textContent = 0
      
     const script = document.createElement('script');
