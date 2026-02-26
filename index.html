@@ -44,17 +44,6 @@
   background: #f4efe6;
 }
 
-.left-panel-admin {
-  position: absolute;
-  width: 350px;
-  top: 330px;
-  margin-left: calc(50% + 150px);
-  padding: 5px 5px;
-  background: #f4efe6;
-  text-align: center;
-  font-size: 12px;
-}
-
 .left-panel-map {
   position: absolute;
   top: 110px;
@@ -84,10 +73,6 @@ h2 {
   margin-top: 60px;
 }
 
-#admin-panel {
-  display: none;
- }
-
 #map-panel {
   display: none;
 }
@@ -98,17 +83,13 @@ h2 {
 
 <body>
 <div class="main-row">
-<div id="admin-panel" class="left-panel-admin">
-  <strong>관리자 패널</strong> 
-  <hr> 
-   <div>방문자 수: <span id="visit-count">0</span></div>
-  <button id="reset-count">방문자 초기화</button>
-</div>
 
 <div id="map-panel" class="left-panel-map">
   <strong>방문자 지도</strong>
   <hr> 
   <div id="visitor-map-area"></div>
+  <div>방문자 수: <span id="visit-count">0</span></div>
+  <button id="reset-count">방문자 초기화</button>
  </div>
 </div>
 
@@ -279,8 +260,8 @@ Pre Print 다운 - 한글 (PDF)
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
   
    if (isAdmin) {
-   document.getElementById('admin-panel').style.display = 'block';
    document.getElementById('map-panel').style.display = 'block';
+   document.getElementById('reset-count').style.display = 'inline-block';
      
       const count = localStorage.getItem('visitCount') || 0;
       document.getElementById('visit-count').textContent = count;
