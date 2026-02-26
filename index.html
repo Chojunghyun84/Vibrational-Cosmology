@@ -48,7 +48,7 @@
   position: absolute;
   width: 350px;
   top: 330px;
-  margin-left: 1100px;
+  margin-left: calc(50% + 350px);
   padding: 5px 5px;
   background: #f4efe6;
   text-align: center;
@@ -58,7 +58,7 @@
 .left-panel-map {
   position: absolute;
   top: 110px;
-  margin-left: 1100px;
+  margin-left: calc(50% + 350px);
   width: 350px;
   padding: 5px 5px;
   background: #f4efe6;
@@ -289,7 +289,7 @@ Pre Print 다운 - 한글 (PDF)
       document.getElementById('visit-count').textContent = 0
     }; 
     if (isMobile) {
-      document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; color:white; text-decoration:none; border-radius:5px;">📊 나라별 지도 보러가기^^ </a>';
+      document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; text-decoration:none; border-radius:5px;">📊 나라별 지도 보러가기^^ </a>';
     }
     if (!isMobile){
       const script = document.createElement('script');
