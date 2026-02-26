@@ -52,7 +52,7 @@
   padding: 5px 5px;
   background: #f4efe6;
   text-align: center;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 h1 {
@@ -77,6 +77,10 @@ h2 {
   display: none;
 }
 
+#reset-count {
+  display: none;
+}
+
 </style>
 
 </head>
@@ -88,7 +92,7 @@ h2 {
   <strong>방문자 지도</strong>
   <hr> 
   <div id="visitor-map-area"></div>
-  <div>방문자 수: <span id="visit-count">0</span></div>
+  <div><strong>방문자 수: </strong><span id="visit-count"><strong>0</strong></span></div>
   <hr>
   <button id="reset-count">방문자 초기화</button>
  </div>
@@ -262,7 +266,7 @@ Pre Print 다운 - 한글 (PDF)
   
    if (isAdmin) {
    document.getElementById('map-panel').style.display = 'block';
-   document.getElementById('reset-count').style.display = 'inline-block';
+   document.getElementById('reset-count').style.display = 'block';
      
       const count = localStorage.getItem('visitCount') || 0;
       document.getElementById('visit-count').textContent = count;
@@ -284,7 +288,6 @@ Pre Print 다운 - 한글 (PDF)
   
    if (!isAdmin) {
     document.getElementById('map-panel').style.display = 'block';
-    document.getElementById('reset-count').style.display = 'inline-none';
      
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
