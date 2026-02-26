@@ -270,12 +270,13 @@ Pre Print 다운 - 한글 (PDF)
 <script>
   const params = new URLSearchParams(window.location.search);
   const isAdmin = params.get('admin') === '1';
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
   
    if (isAdmin) {
    document.getElementById('map-panel').style.display = 'block';
    document.getElementById('reset-count').style.display = 'block';
    document.getElementById('visitors').style.display = 'block';
+
+      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
      
       const count = localStorage.getItem('visitCount') || 0;
       document.getElementById('visit-count').textContent = count;
