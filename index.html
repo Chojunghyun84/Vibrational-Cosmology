@@ -83,6 +83,12 @@ h2 {
   margin: 0px auto;
 }
 
+#visitors {
+  display: none;
+  margin-top: 10px;
+  margin: 0px auto;
+}
+
 </style>
 
 </head>
@@ -94,9 +100,7 @@ h2 {
   <strong>Visitor Map</strong>
   <hr> 
   <div id="visitor-map-area"></div>
-  <div style="margin-top: 5px;>
-    <strong>Visitors: </strong><span id="visit-count">0</span>
-  </div>
+  <div id="visitors">Visitors: </div>
   <hr>
   <button id="reset-count">방문자 초기화</button>
  </div>
@@ -271,6 +275,7 @@ Pre Print 다운 - 한글 (PDF)
    if (isAdmin) {
    document.getElementById('map-panel').style.display = 'block';
    document.getElementById('reset-count').style.display = 'block';
+   document.getElementById('visitors').style.display = 'block';
      
       const count = localStorage.getItem('visitCount') || 0;
       document.getElementById('visit-count').textContent = count;
