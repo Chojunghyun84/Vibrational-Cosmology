@@ -297,6 +297,7 @@ Pre Print 다운 - 한글 (PDF)
   
    if (!isAdmin) {
     document.getElementById('map-panel').style.display = 'block';
+    document.getElementById('visit-count').style.display = 'none';
      
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
