@@ -94,7 +94,7 @@ h2 {
   <strong>Visitor Map</strong>
   <hr> 
   <div id="visitor-map-area"></div>
-  <div><strong>visitors: </strong><span id="visit-count">0</span></div>
+  <div><strong>Visitors: </strong><span id="visit-count">0</span></div>
   <hr>
   <button id="reset-count">방문자 초기화</button>
  </div>
@@ -294,8 +294,7 @@ Pre Print 다운 - 한글 (PDF)
     let count = localStorage.getItem('visitCount');
     count = count ? parseInt(count, 10) : 0;
     count++;
-    localStorage.setItem('visitCount', 0);
-    document.getElementById('visit-count').textContent = 0
+    localStorage.setItem('visitCount', count);
      
     const script = document.createElement('script');
     script.type = 'text/javascript';
