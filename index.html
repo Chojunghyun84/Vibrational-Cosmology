@@ -254,12 +254,12 @@ Pre Print 다운 - 한글 (PDF)
 <script>
   const params = new URLSearchParams(window.location.search);
   const isAdmin = params.get('admin') === '1';
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
   
    if (isAdmin) {
    document.getElementById('map-panel').style.display = 'block';
    document.getElementById('visitors').style.display = 'block';
-           
+        const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
+     
     if (isMobile) {
       document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; text-decoration:none; border-radius:5px;">📊 나라별 지도 보러가기^^ </a>';
     }
