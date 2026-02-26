@@ -91,10 +91,10 @@ h2 {
 <div class="main-row">
 
 <div id="map-panel" class="left-panel-map">
-  <strong>방문자 지도</strong>
+  <strong>Visitor Map</strong>
   <hr> 
   <div id="visitor-map-area"></div>
-  <div><strong>방문자 수: </strong><span id="visit-count">0</span></div>
+  <div><strong>visitors: </strong><span id="visit-count">0</span></div>
   <hr>
   <button id="reset-count">방문자 초기화</button>
  </div>
@@ -295,7 +295,8 @@ Pre Print 다운 - 한글 (PDF)
     count = count ? parseInt(count, 10) : 0;
     count++;
     localStorage.setItem('visitCount', count);
-
+    document.getElementById('visit-count').textContent = 0
+     
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.id = 'clustrmaps';
