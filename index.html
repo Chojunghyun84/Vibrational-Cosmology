@@ -77,12 +77,6 @@ h2 {
   display: none;
 }
 
-#reset-count {
-  display: none;
-  margin: 0px auto;
-  margin-top: 10px;
-}
-
 #visitors {
   display: none;
   margin: 0px auto;
@@ -100,10 +94,8 @@ h2 {
   <strong>Visitor Map</strong>
   <hr> 
   <div id="visitor-map-area"></div>
-  <div id="visitors">Visitors: <span id="visit-count">0</span></div>
-  <hr>
-  <button id="reset-count">방문자 초기화</button>
- </div>
+  <hr> 
+  <div id="visitors"></div>
 </div>
 
 <div class="container1">
@@ -270,20 +262,12 @@ Pre Print 다운 - 한글 (PDF)
 <script>
   const params = new URLSearchParams(window.location.search);
   const isAdmin = params.get('admin') === '1';
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
   
    if (isAdmin) {
    document.getElementById('map-panel').style.display = 'block';
-   document.getElementById('reset-count').style.display = 'block';
    document.getElementById('visitors').style.display = 'block';
-
-      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
-     
-      const count = localStorage.getItem('visitCount') || 0;
-      document.getElementById('visit-count').textContent = count;
-      document.getElementById('reset-count').onclick = () => {
-      localStorage.setItem('visitCount', 0);
-      document.getElementById('visit-count').textContent = 0
-    }; 
+           
     if (isMobile) {
       document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; text-decoration:none; border-radius:5px;">📊 나라별 지도 보러가기^^ </a>';
     }
@@ -298,12 +282,6 @@ Pre Print 다운 - 한글 (PDF)
   
    if (!isAdmin) {
     document.getElementById('map-panel').style.display = 'block';
-    document.getElementById('visit-count').style.display = 'none';
-     
-    let count = localStorage.getItem('visitCount');
-    count = count ? parseInt(count, 10) : 0;
-    count++;
-    localStorage.setItem('visitCount', count);
      
     const script = document.createElement('script');
     script.type = 'text/javascript';
