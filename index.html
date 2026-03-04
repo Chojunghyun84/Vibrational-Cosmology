@@ -77,7 +77,7 @@
 .paper-table th, .paper-table td {
     border: 1px solid #000000;
     padding: 8px;
-  
+}
 .paper-table td {
     width: 33.33%;
 }
@@ -119,19 +119,20 @@ h2 {
     width: 180px;
     box-sizing: border-box;
   }
-  .paper-table {
-    width: 400px;
-    border-collapse: collapse;
-    margin-top: 40px;        
-    text-align: center;      
+ .paper-table, .paper-table tbody, .paper-table tr, .paper-table th, .paper-table td {
+    display: block;         /* 표의 칸들을 일반 블록 상자로 변신시킵니다 */
+    width: 100%;            /* 모바일 화면 가로에 100% 꽉 차게 만듭니다 */
+    box-sizing: border-box; 
   }
-
-.paper-table th, .paper-table td {
-    border: 1px solid #000000;
-}
-.paper-table td {
-    width: 33.33%;
-}
+  
+  .paper-table th {
+    border-bottom: none;    /* 세로로 쌓일 때 테두리가 두꺼워지지 않게 방지합니다 */
+  }
+  
+  .paper-table td {
+    border-top: none;
+    width: 100%;            /* 33.3%였던 넓이를 100%로 시원하게 늘려줍니다 */
+  }
 }
 
 </style>
