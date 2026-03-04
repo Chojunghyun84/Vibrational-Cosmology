@@ -319,14 +319,17 @@ PrePrint 다운 - 한글 (PDF)
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  const isAdmin = params.get('admin') === '1';
+  let isAdmin = params.get('admin') === '1';
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
   
    if (isAdmin) {
-   document.getElementById('map-panel').style.display = 'block';
-        
+    const password = prompt("조중현 님, 비밀번호를 입력해 주세요:")
+     if (password === "9253") {
+      alert("환영합니다 ^^");
+     document.getElementById('map-panel').style.display = 'block';
+   
     if (isMobile) {
-      document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; text-decoration:none; border-radius:5px;">📊 나라별 지도 보러가기^^ </a>';
+      document.getElementById('visitor-map-area').innerHTML = '<a href="https://clustrmaps.com/site/1c9b5" target="_blank" style="display:block; padding:10px; text-decoration:none; border-radius:5px;">📊 나라별 방문 지도</a>';
     }
     if (!isMobile){
       const script = document.createElement('script');
@@ -335,8 +338,12 @@ PrePrint 다운 - 한글 (PDF)
       script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=1yJ1VeC5HTAHE-c10eVwVoMbSqW4P-HDki3oYkVNK58';
       document.getElementById('visitor-map-area').appendChild(script);
     }
+   } else {
+       isAdmin = false;
+       window.location.href = window.location.pathname; 
+    }
    }
-  
+       
    if (!isAdmin) {
     document.getElementById('map-panel').style.display = 'block';
      
